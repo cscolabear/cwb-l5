@@ -59,9 +59,9 @@
 
         methods: {
             timeString(start, end) {
-                return start.substr(5, start.length - 3) + // 2020-05-04 12:00:00 -> 05-04 12:00
+                return start.substr(5, start.length - 8) + // 2020-05-04 12:00:00 -> 05-04 12:00
                     ' ~ ' +
-                    end.substr(5, end.length - 3);
+                    end.substr(5, end.length - 8);
             },
             reorg(records) {
                 let dataSet = {};
