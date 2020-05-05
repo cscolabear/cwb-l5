@@ -1,0 +1,11 @@
+[build.environment]
+
+NODE_VERSION="12"
+PHP_VERSION="7.2"
+
+
+
+[[redirects]]
+  from = "/*"
+  to = "https://cwb-l5.netlify.app/:splat"
+  status = 200
