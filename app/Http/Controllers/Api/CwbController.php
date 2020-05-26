@@ -1,12 +1,46 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
+/**
+ * @OA\Info(
+ *     version="0.1",
+ *     title="Task Resource OpenApi",
+ *     @OA\Contact(
+ *         name="Cola",
+ *         email="cola@bear.io"
+ *     )
+ * )
+ */
 class CwbController extends Controller
 {
-    // https://opendata.cwb.gov.tw/dist/opendata-swagger.html
+    /**
+     * source: https://opendata.cwb.gov.tw/dist/opendata-swagger.html
+     *
+     * @OA\Get(
+     *     path="/api/cwb/{county}",
+     *     tags={"cwb", "open-api"},
+     *     operationId="fetchWeatherByCounty",
+     *
+     *     @OA\Parameter(
+     *         name="county",
+     *         description="輸入中文. e.g. 臺北市、臺中市",
+     *         required=true,
+     *         in="path",
+     *         @OA\Schema(
+     *             type="string",
+     *             enum={"臺北市", "臺中市"},
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="ok",
+     *     )
+     * )
+     */
     public function get(string $county)
     {
         $urlencode_county = urlencode($county);

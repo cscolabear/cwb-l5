@@ -13,6 +13,8 @@
 */
 
 Route::get('/', '\App\Http\Controllers\MainController@index');
+
+
 // Route::get('/', function () {
     // return view('welcome');
 // });

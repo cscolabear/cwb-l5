@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/cwb/{county}', '\App\Http\Controllers\CwbController@get');
+Route::get('/cwb/{county}', '\App\Http\Controllers\Api\CwbController@get');

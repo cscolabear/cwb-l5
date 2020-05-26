@@ -1,0 +1,43 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Task Resource OpenApi",
+        "contact": {
+            "name": "Cola",
+            "email": "cola@bear.io"
+        },
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/cwb/{county}": {
+            "get": {
+                "tags": [
+                    "cwb",
+                    "open-api"
+                ],
+                "summary": "source: https://opendata.cwb.gov.tw/dist/opendata-swagger.html",
+                "operationId": "fetchWeatherByCounty",
+                "parameters": [
+                    {
+                        "name": "county",
+                        "in": "path",
+                        "description": "輸入中文. e.g. 臺北市、臺中市",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "臺北市",
+                                "臺中市"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok"
+                    }
+                }
+            }
+        }
+    }
+}
