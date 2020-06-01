@@ -1,22 +1,37 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Task Resource OpenApi",
+        "title": "l5-swagger OpenApi Test",
+        "description": "L5 Swagger OpenApi test 測試",
         "contact": {
             "name": "Cola",
-            "email": "cola@bear.io"
+            "email": "cscolabear+swagger@gmail.com"
         },
-        "version": "0.1"
+        "version": "0.1.0"
     },
+    "servers": [
+        {
+            "url": "http://local.cwb-l5",
+            "description": "Localhost"
+        },
+        {
+            "url": "https://api-host.dev.app",
+            "description": "測試區主機"
+        },
+        {
+            "url": "https://api-host.production.app",
+            "description": "正式區主機"
+        }
+    ],
     "paths": {
         "/api/cwb/{county}": {
             "get": {
                 "tags": [
-                    "cwb",
-                    "open-api"
+                    "cwb"
                 ],
-                "summary": "source: https://opendata.cwb.gov.tw/dist/opendata-swagger.html",
-                "operationId": "fetchWeatherByCounty",
+                "summary": "取得中央氣象局 opendata api",
+                "description": "county 指定縣市",
+                "operationId": "cwb",
                 "parameters": [
                     {
                         "name": "county",
@@ -27,14 +42,47 @@
                             "type": "string",
                             "enum": [
                                 "臺北市",
-                                "臺中市"
+                                "新北市",
+                                "臺中市",
+                                "臺南市"
                             ]
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "ok"
+                        "description": "請求成功"
+                    }
+                }
+            }
+        },
+        "/api/articles": {
+            "get": {
+                "tags": [
+                    "Article Tag"
+                ],
+                "summary": "(Dummy)取得文章列表 Summary",
+                "description": "取得文章列表 Description",
+                "operationId": "articles",
+                "responses": {
+                    "200": {
+                        "description": "請求成功"
+                    }
+                }
+            }
+        },
+        "/api/test": {
+            "get": {
+                "tags": [
+                    "test",
+                    "cola"
+                ],
+                "summary": "(Dummy)取得文章列表 Summary",
+                "description": "取得文章列表 Description",
+                "operationId": "test",
+                "responses": {
+                    "200": {
+                        "description": "請求成功"
                     }
                 }
             }
